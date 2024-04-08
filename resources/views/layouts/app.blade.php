@@ -90,9 +90,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/features" class="nav-link ">
+                <a href="/teams" class="nav-link ">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Data Features</p>
+                  <p>Data Teams</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -118,16 +118,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="/about" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
               <p>
-       User
+       About
            </p>
             </a>
           </li>
 
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="/contact" class="nav-link">
               <i class="nav-icon fas fa-phone"></i>
               <p>
        Contact

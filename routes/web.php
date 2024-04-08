@@ -7,6 +7,9 @@ use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\TeamController;
+use App\Http\Controllers\AboutController;
+use App\Models\About;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,4 +44,8 @@ Route::resource('sliders', SliderController::class)->middleware('auth');
 Route::resource('services', ServiceController::class)->middleware('auth');
 Route::resource('portfolios', PortfolioController::class)->middleware('auth');
 Route::resource('clients', ClientController::class)->middleware('auth');
+Route::resource('teams', TeamController::class)->middleware('auth');
 
+
+Route::get('/about', [AboutController::class, 'index'])->name('backend.about.index');
+Route::put('/about/{id}', [AboutController::class, 'update'])->name('backend.about.index');

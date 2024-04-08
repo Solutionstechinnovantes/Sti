@@ -2,20 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Slider;
+use App\Models\Portfolio;
 use Illuminate\Http\Request;
 
-class SliderController extends Controller
+class PortfolioController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-
-        $sliders = Slider::all();
+        $portfolios = Portfolio::all();
         
-        return view('backend.slider.index', compact('sliders'));
+        return view('backend.portfolio.index', compact('portfolios'));
     }
 
     /**
@@ -23,7 +22,7 @@ class SliderController extends Controller
      */
     public function create()
     {
-        return view('backend.slider.create');
+        return view('backend.portfolio.create');
     }
 
     /**
@@ -31,8 +30,7 @@ class SliderController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(['tittle'=>'required', 'description'=>'required', 'image'=> 'required|image
-        ']);
+        $request->validate(['tittle'=>'required', 'description'=>'required', 'image'=> 'required|image']);
 
         $input = $request->all();
 
@@ -43,14 +41,14 @@ class SliderController extends Controller
             $input['image'] = $imageName;
         }
 
-        Slider::create($input);
-        return redirect('/sliders')->with('message','Slider added successfully');
+        Portfolio::create($input);
+        return redirect('/portfolios')->with('message','Portfolio added successfully');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Slider $slider)
+    public function show(Portfolio $portfolio)
     {
         //
     }
@@ -58,19 +56,19 @@ class SliderController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Slider $slider)
+    public function edit(Portfolio $portfolio)
     {
-        return view('backend.slider.edit', compact('slider'));
+        return view('backend.portfolio.edit', compact('portfolio'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Slider $slider)
+    public function update(Request $request, Portfolio $portfolio)
     {
         
         $request->validate(['tittle'=>'required', 'description'=>'required', 'image'=> 'image'
-        ]);
+    ]);
 
         $input = $request->all();
 
@@ -79,23 +77,23 @@ class SliderController extends Controller
             $imageName = $image->getClientOriginalExtension();
             $image->move($destinationPath, $imageName);
             $input['image'] = $imageName;
-        }else {
-            unset($input['$image']);
+        } else {
+            unset($input['image']);
         }
 
-        $slider->update($input);
+        $portfolio->update($input);
         
-        return redirect('/sliders')->with('message','Slider updated successfully');
+        return redirect('/portfolios')->with('message','Portfolio updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Slider $slider)
+    public function destroy(Portfolio $portfolio)
     {
-        $slider->delete();
+        $portfolio->delete();
 
-        return redirect('/sliders')->with('message','Slider deleted successfully');
+        return redirect('/portfolios')->with('message','Portfolio deleted successfully');
         
     }
 }

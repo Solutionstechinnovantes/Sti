@@ -2,20 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Slider;
+use App\Models\Client;
 use Illuminate\Http\Request;
 
-class SliderController extends Controller
+class ClientController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-
-        $sliders = Slider::all();
+        $clients = Client::all();
         
-        return view('backend.slider.index', compact('sliders'));
+        return view('backend.client.index', compact('clients'));
     }
 
     /**
@@ -23,7 +22,7 @@ class SliderController extends Controller
      */
     public function create()
     {
-        return view('backend.slider.create');
+        return view('backend.client.create');
     }
 
     /**
@@ -31,8 +30,7 @@ class SliderController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(['tittle'=>'required', 'description'=>'required', 'image'=> 'required|image
-        ']);
+        $request->validate(['tittle'=>'required', 'description'=>'required', 'image'=> 'required|image']);
 
         $input = $request->all();
 
@@ -43,14 +41,14 @@ class SliderController extends Controller
             $input['image'] = $imageName;
         }
 
-        Slider::create($input);
-        return redirect('/sliders')->with('message','Slider added successfully');
+        Client::create($input);
+        return redirect('/clients')->with('message','Client added successfully');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Slider $slider)
+    public function show(Client $client)
     {
         //
     }
@@ -58,19 +56,18 @@ class SliderController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Slider $slider)
+    public function edit(Client $client)
     {
-        return view('backend.slider.edit', compact('slider'));
+        return view('backend.client.edit', compact('client'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Slider $slider)
+    public function update(Request $request, Client $client)
     {
         
-        $request->validate(['tittle'=>'required', 'description'=>'required', 'image'=> 'image'
-        ]);
+        $request->validate(['tittle'=>'required', 'description'=>'required', 'image'=> 'image']);
 
         $input = $request->all();
 
@@ -79,23 +76,22 @@ class SliderController extends Controller
             $imageName = $image->getClientOriginalExtension();
             $image->move($destinationPath, $imageName);
             $input['image'] = $imageName;
-        }else {
-            unset($input['$image']);
+        } else {
+            unset($input['image']);
         }
 
-        $slider->update($input);
+        $client->update($input);
         
-        return redirect('/sliders')->with('message','Slider updated successfully');
+        return redirect('/clients')->with('message','Client updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Slider $slider)
+    public function destroy(Client $client)
     {
-        $slider->delete();
+        $client->delete();
 
-        return redirect('/sliders')->with('message','Slider deleted successfully');
-        
+        return redirect('/clients')->with('message','Client deleted successfully');
     }
 }

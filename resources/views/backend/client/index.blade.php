@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="container">
-        <a href="/clients/create" class="btn btn-primary mb-3">Add client</a>
+        <a href="/admin/clients/create" class="btn btn-primary mb-3">Add client</a>
 
         @if ($message = Session::get('message'))
         <div class="alert alert-success">

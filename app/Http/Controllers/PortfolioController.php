@@ -42,7 +42,7 @@ class PortfolioController extends Controller
         }
 
         Portfolio::create($input);
-        return redirect('/portfolios')->with('message','Portfolio added successfully');
+        return redirect('/admin/portfolios')->with('message','Portfolio added successfully');
     }
 
     /**
@@ -83,7 +83,7 @@ class PortfolioController extends Controller
 
         $portfolio->update($input);
         
-        return redirect('/portfolios')->with('message','Portfolio updated successfully');
+        return redirect('/admin/portfolios')->with('message','Portfolio updated successfully');
     }
 
     /**
@@ -93,7 +93,7 @@ class PortfolioController extends Controller
     {
         $portfolio->delete();
 
-        return redirect('/portfolios')->with('message','Portfolio deleted successfully');
+        return redirect('/admin/portfolios')->with('message','Portfolio deleted successfully');
         
     }
 }

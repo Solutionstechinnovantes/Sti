@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="container">
-        <a href="/portfolios/create" class="btn btn-primary mb-3">Add portfolio</a>
+        <a href="/admin/portfolios/create" class="btn btn-primary mb-3">Add portfolio</a>
 
         @if ($message = Session::get('message'))
         <div class="alert alert-success">

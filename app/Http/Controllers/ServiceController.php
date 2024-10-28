@@ -13,7 +13,7 @@ class ServiceController extends Controller
     public function index()
     {
         $services = Service::all();
-        
+
         return view('backend.service.index', compact('services'));
     }
 
@@ -28,22 +28,72 @@ class ServiceController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        $request->validate(['tittle'=>'required', 'description'=>'required', 'image'=> 'required|image']);
+            public function store(Request $request)
+        {
+            $request->validate([
+                'tittlea' => 'required',
+                'descriptiona' => 'required',
+                'imagea' => 'image',
+                'tittleb' => 'required',
+                'descriptionb' => 'required',
+                'imageb' => 'image',
+                'tittlec' => 'required',
+                'descriptionc' => 'required',
+                'imagec' => 'image',
+                'tittled' => 'required',
+                'descriptiond' => 'required',
+                'imaged' => 'image',
+            ]);
 
-        $input = $request->all();
+            $input = $request->all();
 
-        if ($image = $request->file('image')) {
-            $destinationPath = 'image/';
-            $imageName = $image->getClientOriginalExtension();
-            $image->move($destinationPath, $imageName);
-            $input['image'] = $imageName;
+            // Gestion des images
+
+            if ($request->hasFile('imagea')) {
+                $imageA = $request->file('imagea');
+                $destinationPathA = 'image/';
+                $imageNameA = $imageA->getClientOriginalName();
+                $imageA->move($destinationPathA, $imageNameA);
+                $input['imagea'] = $imageNameA;
+            }   else {
+                unset($input['imagea']);
+            }
+
+            if ($request->hasFile('imageb')) {
+                $imageB = $request->file('imageb');
+                $destinationPathB = 'image/';
+                $imageNameB = $imageB->getClientOriginalName();
+                $imageB->move($destinationPathB, $imageNameB);
+                $input['imageb'] = $imageNameB;
+            } else {
+                unset($input['imageb']);
+            }
+
+            if ($request->hasFile('imagec')) {
+                $imageC = $request->file('imagec');
+                $destinationPathC = 'image/';
+                $imageNameC = $imageC->getClientOriginalName();
+                $imageC->move($destinationPathC, $imageNameC);
+                $input['imagec'] = $imageNameC;
+            } else {
+                unset($input['imagec']);
+            }
+
+            if ($request->hasFile('imaged')) {
+                $imageD = $request->file('imaged');
+                $destinationPathD = 'image/';
+                $imageNameD = $imageD->getClientOriginalName();
+                $imageD->move($destinationPathD, $imageNameD);
+                $input['imaged'] = $imageNameD;
+            } else {
+                unset($input['imaged']);
+            }
+
+            Service::create($input);
+
+            return redirect('/admin/services')->with('message', 'Service added successfully');
         }
 
-        Service::create($input);
-        return redirect('/services')->with('message','Service added successfully');
-    }
 
     /**
      * Display the specified resource.
@@ -66,24 +116,38 @@ class ServiceController extends Controller
      */
     public function update(Request $request, Service $service)
     {
-        
-        $request->validate(['tittle'=>'required', 'description'=>'required', 'image'=> 'image'
-    ]);
+        $request->validate([
+            'tittlea' => 'required',
+            'descriptiona' => 'required',
+            'imagea' => 'image',
+            'tittleb' => 'required',
+            'descriptionb' => 'required',
+            'imageb' => 'image',
+            'tittlec' => 'required',
+            'descriptionc' => 'required',
+            'imagec' => 'image',
+            'tittled' => 'required',
+            'descriptiond' => 'required',
+            'imaged' => 'image',
+        ]);
 
         $input = $request->all();
 
-        if ($image = $request->file('image')) {
-            $destinationPath = 'image/';
-            $imageName = $image->getClientOriginalExtension();
-            $image->move($destinationPath, $imageName);
-            $input['image'] = $imageName;
-        }else {
-            unset($input['$image']);
+        // Gestion des images
+        foreach (['imagea', 'imageb', 'imagec', 'imaged'] as $imageField) {
+            if ($image = $request->file($imageField)) {
+                $destinationPath = 'image/';
+                $imageName = $image->getClientOriginalName();
+                $image->move($destinationPath, $imageName);
+                $input[$imageField] = $imageName;
+            } else {
+                unset($input[$imageField]);
+            }
         }
 
         $service->update($input);
-        
-        return redirect('/services')->with('message','Service updated successfully');
+
+        return redirect('/admin/services')->with('message', 'Service updated successfully');
     }
 
     /**
@@ -93,7 +157,6 @@ class ServiceController extends Controller
     {
         $service->delete();
 
-        return redirect('/services')->with('message','Service deleted successfully');
-        
+        return redirect('/admin/services')->with('message', 'Service deleted successfully');
     }
 }

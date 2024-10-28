@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="container">
-        <a href="/sliders" class="btn btn-primary mb-3">Sliders list</a>
+        <a href="/admin/sliders" class="btn btn-primary mb-3">Sliders list</a>
         <div class="row" >
             <div class="col-md-12">
                 <form action="{{ route('sliders.update', $slider->id) }}" method="POST" enctype="multipart/form-data">

@@ -42,7 +42,7 @@ class TeamController extends Controller
         }
 
         Team::create($input);
-        return redirect('/teams')->with('message','Team added successfully');
+        return redirect('/admin/teams')->with('message','Team added successfully');
     }
 
     /**
@@ -82,7 +82,7 @@ class TeamController extends Controller
 
         $team->update($input);
         
-        return redirect('/teams')->with('message','Team updated successfully');
+        return redirect('/admin/teams')->with('message','Team updated successfully');
     }
 
     /**
@@ -92,6 +92,6 @@ class TeamController extends Controller
     {
         $team->delete();
 
-        return redirect('/teams')->with('message','Team deleted successfully');
+        return redirect('/admin/teams')->with('message','Team deleted successfully');
     }
 }

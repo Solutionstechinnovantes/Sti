@@ -8,8 +8,9 @@ use App\Http\Controllers\SliderController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AboutController;
-use App\Models\About;
+use App\Models\Contact;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,14 +39,18 @@ Route::post('/login', [AuthController::class, 'authenticated']);
 Route::get('/logout', [AuthController::class, 'logout']);
 
 //Dashboard
+Route::prefix('/admin')->middleware('auth')->group(function(){
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
-Route::resource('sliders', SliderController::class)->middleware('auth');
-Route::resource('services', ServiceController::class)->middleware('auth');
-Route::resource('portfolios', PortfolioController::class)->middleware('auth');
-Route::resource('clients', ClientController::class)->middleware('auth');
-Route::resource('teams', TeamController::class)->middleware('auth');
+Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::resource('sliders', SliderController::class);
+Route::resource('services', ServiceController::class);
+Route::resource('portfolios', PortfolioController::class);
+Route::resource('clients', ClientController::class);
+Route::resource('teams', TeamController::class);
 
 
-Route::get('/about', [AboutController::class, 'index'])->name('backend.about.index');
-Route::put('/about/{id}', [AboutController::class, 'update'])->name('backend.about.index');
+Route::get('contact', [ContactController::class, 'index'])->name('backend.contact.index');
+Route::put('contact/{id}', [ContactController::class, 'update'])->name('backend.contact.index');
+Route::get('abouts', [AboutController::class, 'index'])->name('backend.about.index');
+Route::put('about/{id}', [AboutController::class, 'update'])->name('backend.about.index');
+});

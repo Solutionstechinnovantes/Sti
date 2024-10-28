@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="container">
-        <a href="/teams" class="btn btn-primary mb-3">teams list</a>
+        <a href="/admin/teams" class="btn btn-primary mb-3">teams list</a>
         <div class="row" >
             <div class="col-md-12">
                 <form action="{{ route('teams.store') }}" method="POST" enctype="multipart/form-data">

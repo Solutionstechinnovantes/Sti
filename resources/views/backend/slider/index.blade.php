@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="container">
-        <a href="/sliders/create" class="btn btn-primary mb-3">Add Slider</a>
+        <a href="/admin/sliders/create" class="btn btn-primary mb-3">Add Slider</a>
 
         @if ($message = Session::get('message'))
         <div class="alert alert-success">

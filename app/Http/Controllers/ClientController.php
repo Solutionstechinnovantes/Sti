@@ -42,7 +42,7 @@ class ClientController extends Controller
         }
 
         Client::create($input);
-        return redirect('/clients')->with('message','Client added successfully');
+        return redirect('/admin/clients')->with('message','Client added successfully');
     }
 
     /**
@@ -82,7 +82,7 @@ class ClientController extends Controller
 
         $client->update($input);
         
-        return redirect('/clients')->with('message','Client updated successfully');
+        return redirect('/admin/clients')->with('message','Client updated successfully');
     }
 
     /**
@@ -92,6 +92,6 @@ class ClientController extends Controller
     {
         $client->delete();
 
-        return redirect('/clients')->with('message','Client deleted successfully');
+        return redirect('/admin/clients')->with('message','Client deleted successfully');
     }
 }

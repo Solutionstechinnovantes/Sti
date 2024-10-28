@@ -9,13 +9,27 @@ class About extends Model
 {
     use HasFactory;
     protected $table = 'about';
+
     protected $fillable = [
-        'name', 
-        'description', 
-        'logo', 
-        'address', 
-        'email', 
-        'phone', 
-        'maps_embed'
+        'axea',
+        'axeb',
+        'axec',
+        'axed',
+        'titlea',
+        'titleb',
+        'titlec',
+        'titled',
+        'subtitlea',
+        'subtitleb',
+        'subtitlec',
+        'subtitled',
+        'descriptiona',
+        'descriptionb',
+        'descriptionc',
+        'descriptiond',
+        'icon_imagea',
+        'icon_imageb',
+        'icon_imagec',
+        'icon_imaged',
     ];
 }

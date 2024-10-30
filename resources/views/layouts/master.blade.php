@@ -49,8 +49,8 @@
   <section id="topbar" class="d-none d-lg-block">
     <div class="container clearfix">
       <div class="contact-info float-left">
-        <i class="icofont-envelope"></i><a href="mailto:contact@example.com">contact@example.com</a>
-        <i class="icofont-phone"></i> 27273333
+        <i class="icofont-envelope"></i><a href="mailto:solutionstechinnovantes@gmail.com">solutionstechinnovantes@gmail.com/a>
+        <i class="icofont-phone"></i> 46839983
       </div>
       <div class="social-links float-right">
         <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
@@ -66,39 +66,27 @@
   <header id="header">
     <div class="container">
 
-      <div class="logo float-left">
-        <h1 class="text-light"><a href="index.html"><strong><span style="color: #16b8ee">S</span><span>TI</span></strong></a></h1>
+        <a href="{{ route('frontend.index') }}"><img src="{{ asset('image/stilogo.png') }}" style="width: 100px; height: 60px;" alt=""></a>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-      </div>
 
-      <nav class="nav-menu float-right d-none d-lg-block">
-        <ul>
-          <li class="active"><a href="{{ route('frontend.index') }}">Home</a></li>
-          <li><a href="{{ route('frontend.about') }}">About Us</a></li>
-          <li><a href="{{ route('frontend.services') }}">Services</a></li>
-          <li><a href="{{ route('frontend.portfolio') }}">Portfolio</a></li>
-          <li><a href="{{ route('frontend.team') }}">Team</a></li>
-          <li class="drop-down"><a href="">Drop Down</a>
+        <nav class="nav-menu float-right d-none d-lg-block">
             <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="drop-down"><a href="#">Drop Down 2</a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-              <li><a href="#">Drop Down 5</a></li>
+                <li class="active"><a href="{{ route('frontend.index') }}">@lang('messages.home')</a></li>
+                <li><a href="{{ route('frontend.about') }}">@lang('messages.about us')</a></li>
+                <li><a href="{{ route('frontend.services') }}">@lang('messages.services')</a></li>
+                <li><a href="{{ route('frontend.team') }}">@lang('messages.team')</a></li>
+                <li><a href="{{ route('frontend.contact') }}">@lang('messages.contact us')</a></li>
+                <li class="drop-down"><a href="">Lang</a>
+                    <ul>
+                        <li><a href="locale/ar" onclick="translatePage('ar')">Arabe</a></li>
+                        <li><a href="locale/fr" onclick="translatePage('fr')">Français</a></li>
+                        <li><a href="locale/en" onclick="translatePage('en')">Anglais</a></li>
+                    </ul>
+                </li>
             </ul>
-          </li>
-          <li><a href="{{ route('frontend.contact') }}">Contact Us</a></li>
-        </ul>
-      </nav><!-- .nav-menu -->
+        </nav><!-- .nav-menu -->
+
 
     </div>
 
@@ -167,7 +155,7 @@
     <!-- End Services Section -->
 
     <!-- ======= Our Portfolio Section ======= -->
-    @yield('portfolio')
+
   <!-- End Our Portfolio Section -->
 
     <!-- ======= Our Team Section ======= -->
@@ -187,16 +175,17 @@
         <div class="row">
 
           <div class="col-lg-3 col-md-6 footer-info">
-            <h3><strong style="color: #16b8ee;">S</strong>TI</h3>
+        <a href="{{ route('frontend.index') }}"><img src="{{ asset('image/stilogo.png') }}" style="width: 150px; height: 160px;" alt=""></a>
+
             <p>
               Tevragh Zeina <br>
               Nouakchott, Mauritania<br><br>
-              <strong>Phone:</strong> 27273333<br>
-              <strong>Email:</strong> info@example.com<br>
+              <strong>Phone:</strong> 46839983<br>
+              <strong>Email:</strong> solutionstechinnovantes@gmail.com<br>
             </p>
             <div class="social-links mt-3">
               <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="https://web.facebook.com/solutionstechnologiesinnovantes/" class="facebook"><i class="bx bxl-facebook"></i></a>
               <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
               <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
               <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
@@ -240,7 +229,7 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong><span>STI</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>STI</span></strong>. @lang('messages.all rights reserved')
       </div>
     </div>
   </footer><!-- End Footer -->
@@ -277,6 +266,47 @@
         }
     });
 });
+
+$(document).ready(function() {
+    $('a[href^="#"]').on('click', function(event) {
+        event.preventDefault();
+        $('html, body').animate({ scrollTop: $(this.hash).offset().top }, 800);
+    });
+});
+
+
+
+</script>
+
+<!-- Script JavaScript pour la traduction -->
+<script>
+    const apiKey = "VOTRE_CLE_API_GOOGLE";  // Remplacez par votre clé API Google Translate
+
+    async function translateText(text, targetLang) {
+        const url = `https://translation.googleapis.com/language/translate/v2?key=${apiKey}`;
+        const response = await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                q: text,
+                target: targetLang
+            })
+        });
+        const data = await response.json();
+        return data.data.translations[0].translatedText;
+    }
+
+    async function translatePage(targetLang) {
+        const elements = document.querySelectorAll("[data-translate]");
+
+        elements.forEach(async (element) => {
+            const originalText = element.textContent;
+            const translatedText = await translateText(originalText, targetLang);
+            element.textContent = translatedText;
+        });
+    }
 </script>
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>

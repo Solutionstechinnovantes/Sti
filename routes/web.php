@@ -10,6 +10,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\LocaleController;
 use App\Models\Contact;
 use Illuminate\Support\Facades\Route;
 
@@ -31,7 +32,7 @@ Route::get('/services', [HomeController::class, 'services'])->name('frontend.ser
 Route::get('/portfolio', [HomeController::class, 'portfolio'])->name('frontend.portfolio');
 Route::get('/team', [HomeController::class, 'team'])->name('frontend.team');
 Route::get('/contact', [HomeController::class, 'contact'])->name('frontend.contact');
-
+Route::get('locale/{lang}',[LocaleController::class, 'setLocale']);
 
 //Auth
 Route::get('/login', [AuthController::class, 'login'])->name('login');

@@ -4,8 +4,8 @@
 <!-- ======= About Us Section ======= -->
 <section class="about-us">
     <div class="container text-center">
-        <h2 class="section-title">About Us</h2>
-        <p>Our company focuses on three main axes:</p>
+        <h2 class="section-title">@lang('messages.about us')</h2>
+        <p>@lang('messages.about us description')</p>
     </div>
 </section>
 <!-- End About Us Section -->

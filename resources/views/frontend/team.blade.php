@@ -42,12 +42,12 @@
           </div>
         </div>
 
-        <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
           <div class="member">
-            <div class="pic"><img src="assets/img/team/team-5.jpeg" class="img-fluid" alt=""></div>
+            <div class="pic"><img src="{{ asset('image/moustapha.jpeg') }}" class="img-fluid" alt=""></div>
             <div class="member-info">
               <h4>Moustapha Taleb Jiddou</h4>
-              <span>Full stack web developper</span>
+              <span>Full Stack Developper</span>
               <div class="social">
                 <a href=""><i class="icofont-twitter"></i></a>
                 <a href=""><i class="icofont-facebook"></i></a>
@@ -60,10 +60,10 @@
 
         <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
           <div class="member">
-            <div class="pic"><img src="assets/img/team/team-6.jpg" class="img-fluid" alt=""></div>
+            <div class="pic"><img src="{{ asset('image/salem.jpeg') }}" class="img-fluid" alt=""></div>
             <div class="member-info">
               <h4>Salem Abdellahi</h4>
-              <span>Backend Developper</span>
+              <span>Full Stack Developper</span>
               <div class="social">
                 <a href=""><i class="icofont-twitter"></i></a>
                 <a href=""><i class="icofont-facebook"></i></a>

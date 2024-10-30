@@ -15,7 +15,7 @@
                         <div class="carousel-content container">
                             <h2 class="animated fadeInDown">{{  $slider->tittle  }}</h2>
                             <p class="animated fadeInUp">{{ $slider->description }}</p>
-                            <a href="#about" class="btn-get-started animated fadeInUp scrollto">Read More</a>
+                            <a href="#about" class="btn-get-started animated fadeInUp scrollto">@lang('messages.read more')</a>
                         </div>
                     </div>
                 </div>

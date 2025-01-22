@@ -8,26 +8,29 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
-        Schema::create('services', function (Blueprint $table) {
-            $table->id();
-            $table->string('tittlea');
-            $table->text('descriptiona');
-            $table->string('imagea');
-            $table->string('tittleb');
-            $table->text('descriptionb');
-            $table->string('imageb');
-            $table->string('tittlec');
-            $table->text('descriptionc');
-            $table->string('imagec');
-            $table->string('tittled');
-            $table->text('descriptiond');
-            $table->string('imaged');
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('services')) {
+            Schema::create('services', function (Blueprint $table) {
+                $table->id();
+                $table->string('tittlea');
+                $table->text('descriptiona');
+                $table->string('imagea');
+                $table->string('tittleb');
+                $table->text('descriptionb');
+                $table->string('imageb');
+                $table->string('tittlec');
+                $table->text('descriptionc');
+                $table->string('imagec');
+                $table->string('tittled');
+                $table->text('descriptiond');
+                $table->string('imaged');
+                $table->timestamps();
+            });
+        }
     }
 
+    
     /**
      * Reverse the migrations.
      */

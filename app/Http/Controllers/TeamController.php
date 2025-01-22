@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Team;
 use Illuminate\Http\Request;
-
 class TeamController extends Controller
 {
     /**
@@ -13,7 +12,7 @@ class TeamController extends Controller
     public function index()
     {
         $teams = Team::all();
-        
+
         return view('backend.team.index', compact('teams'));
     }
 
@@ -28,22 +27,7 @@ class TeamController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        $request->validate(['tittle'=>'required', 'description'=>'required', 'image'=> 'required|image']);
 
-        $input = $request->all();
-
-        if ($image = $request->file('image')) {
-            $destinationPath = 'image/';
-            $imageName = $image->getClientOriginalExtension();
-            $image->move($destinationPath, $imageName);
-            $input['image'] = $imageName;
-        }
-
-        Team::create($input);
-        return redirect('/admin/teams')->with('message','Team added successfully');
-    }
 
     /**
      * Display the specified resource.
@@ -64,24 +48,73 @@ class TeamController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Team $team)
-    {
-        
-        $request->validate(['tittle'=>'required', 'description'=>'required', 'image'=> 'image']);
+    public function store(Request $request)
+
+     {
+
+        $request->validate([
+        'tittlea'=>'required',
+        'descriptiona'=>'required',
+        'imagea'=>'image',
+        'fba'=>'required',
+        'twa'=>'required',
+        'ina'=>'required',
+        'linka'=>'required',
+        'gita'=>'required',
+        'tittleb'=>'required',
+        'descriptionb'=>'required',
+        'imageb'=>'image',
+        'fbb'=>'required',
+        'twb'=>'required',
+        'inb'=>'required',
+        'linkb'=>'required',
+        'gitb'=>'required',
+        'tittlec'=>'required',
+        'descriptionc'=>'required',
+        'imagec'=>'image',
+        'fbc'=>'required',
+        'twc'=>'required',
+        'inc'=>'required',
+        'linkc'=>'required',
+        'gitc'=>'required',]);
 
         $input = $request->all();
 
-        if ($image = $request->file('image')) {
-            $destinationPath = 'image/';
-            $imageName = $image->getClientOriginalExtension();
-            $image->move($destinationPath, $imageName);
-            $input['image'] = $imageName;
-        } else {
-            unset($input['image']);
+        // Gestion des images
+
+        if ($request->hasFile('imagea')) {
+            $imageA = $request->file('imagea');
+            $destinationPathA = 'image/';
+            $imageNameA = $imageA->getClientOriginalName();
+            $imageA->move($destinationPathA, $imageNameA);
+            $input['imagea'] = $imageNameA;
+        }   else {
+            unset($input['imagea']);
         }
 
-        $team->update($input);
-        
+        if ($request->hasFile('imageb')) {
+            $imageB = $request->file('imageb');
+            $destinationPathB = 'image/';
+            $imageNameB = $imageB->getClientOriginalName();
+            $imageB->move($destinationPathB, $imageNameB);
+            $input['imageb'] = $imageNameB;
+        } else {
+            unset($input['imageb']);
+        }
+
+        if ($request->hasFile('imagec')) {
+            $imageC = $request->file('imagec');
+            $destinationPathC = 'image/';
+            $imageNameC = $imageC->getClientOriginalName();
+            $imageC->move($destinationPathC, $imageNameC);
+            $input['imagec'] = $imageNameC;
+        } else {
+            unset($input['imagec']);
+        }
+    
+
+        Team::create($input);
+
         return redirect('/admin/teams')->with('message','Team updated successfully');
     }
 

@@ -13,6 +13,7 @@
                         <p>{{ $message }}</p>
                     </div>
                 @endif
+
                 <form action="/admin/about/{{ $about->id }}" method="POST" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
@@ -52,21 +53,21 @@
                         <small style="color: red">{{ $message }}</small>
                     @enderror
                     <div class="form-group">
-                        <label for="titleb">Tittlea</label>
+                        <label for="titleb">Tittleb</label>
                         <input type="text" class="form-control" name="titleb" value="{{ $about->titleb }}" placeholder="Titleb">
                     </div>
                     @error('titleb')
                         <small style="color: red">{{ $message }}</small>
                     @enderror
                     <div class="form-group">
-                        <label for="titlec">Tittlea</label>
+                        <label for="titlec">Tittlec</label>
                         <input type="text" class="form-control" name="titlec" value="{{ $about->titlec }}" placeholder="Titlec">
                     </div>
                     @error('titlec')
                         <small style="color: red">{{ $message }}</small>
                     @enderror
                     <div class="form-group">
-                        <label for="titled">Tittlea</label>
+                        <label for="titled">Tittled</label>
                         <input type="text" class="form-control" name="titled" value="{{ $about->titled }}" placeholder="Titled">
                     </div>
                     @error('titled')

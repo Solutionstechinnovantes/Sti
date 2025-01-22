@@ -26,16 +26,46 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @php
-                        $i = 1;
-                    @endphp
-                    @foreach (  $teams as $team )
+                    @foreach (  $teams as $key => $team )
+
                 <tr>
-                        <td>{{$i++}}</td>
-                        <td>{{$team ->tittle}}</td>
-                        <td>{{$team->description}}</td>
+                        <td>{{$key+1}}</td>
+                        <td>{{$team ->tittlea}}</td>
+                        <td>{{$team->descriptiona}}</td>
                         <td>
-                            <img src="/image/{{ $team->image }}" class="img-fluid" alt="" width="90">
+                            <img src="/image/{{ $team->imagea }}" class="img-fluid" alt="" width="90">
+                        </td>
+                        <td>
+                            <a href="{{ route('teams.edit', $team->id) }}" class="btn btn-warning">Edit</a>
+                            <form action="{{ route('teams.destroy', $team->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>{{$key+1}}</td>
+                        <td>{{$team ->tittleb}}</td>
+                        <td>{{$team->descriptionb}}</td>
+                        <td>
+                            <img src="/image/{{ $team->imageb }}" class="img-fluid" alt="" width="90">
+                        </td>
+                        <td>
+                            <a href="{{ route('teams.edit', $team->id) }}" class="btn btn-warning">Edit</a>
+                            <form action="{{ route('teams.destroy', $team->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>{{$key+1}}</td>
+                        <td>{{$team ->tittlec}}</td>
+                        <td>{{$team->descriptionc}}</td>
+                        <td>
+                            <img src="/image/{{ $team->imagec }}" class="img-fluid" alt="" width="90">
                         </td>
                         <td>
                             <a href="{{ route('teams.edit', $team->id) }}" class="btn btn-warning">Edit</a>
@@ -52,3 +82,6 @@
         </div>
     </div>
 @endsection
+
+
+

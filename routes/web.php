@@ -30,7 +30,7 @@ Route::get('/about', [HomeController::class, 'about'])->name('frontend.about');
 Route::get('/sliders', [HomeController::class, 'sliders'])->name('frontend.sliders');
 Route::get('/services', [HomeController::class, 'services'])->name('frontend.services');
 Route::get('/portfolio', [HomeController::class, 'portfolio'])->name('frontend.portfolio');
-Route::get('/team', [HomeController::class, 'team'])->name('frontend.team');
+Route::get('/teams', [HomeController::class, 'team'])->name('frontend.team');
 Route::get('/contact', [HomeController::class, 'contact'])->name('frontend.contact');
 Route::get('locale/{lang}',[LocaleController::class, 'setLocale']);
 
@@ -54,4 +54,6 @@ Route::get('contact', [ContactController::class, 'index'])->name('backend.contac
 Route::put('contact/{id}', [ContactController::class, 'update'])->name('backend.contact.index');
 Route::get('abouts', [AboutController::class, 'index'])->name('backend.about.index');
 Route::put('about/{id}', [AboutController::class, 'update'])->name('backend.about.index');
+
+
 });

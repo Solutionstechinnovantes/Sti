@@ -60,7 +60,7 @@ class HomeController extends Controller
     public function team(){
         $teams = Team::all();
 
-            return view('frontend.team', compact('teams'));
+            return view('frontend.teams', compact('teams'));
     }
     public function contact(){
         $contact = Contact::first();

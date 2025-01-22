@@ -4,7 +4,7 @@
 <section id="services" class="services">
     <div class="container">
         <div class="section-title">
-            <h2>Services</h2>
+            <h2>@lang('messages.services')</h2>
         </div>
         <div class="row">
             @foreach($services as $service)

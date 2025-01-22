@@ -16,27 +16,35 @@
         <div class="row">
             <div class="col-lg-4 col-md-6 content-item" data-aos="fade-up">
                 <img src="{{ asset('image/' . $about->icon_imagea) }}" alt="Coding Icon" class="icon-image" style="width: 5cm; height: 5cm;">
-                <h4>{{ $about->axea }}</h4>
-                <h5>{{ $about->titlea }}</h5>
-                <h6>{{ $about->subtitlea }}</h6>
-                <p>{{ $about->descriptiona }}</p>
+                <h4><strong>{{ $about->axea }}</strong></h4>
+                <h6>{{ $about->titlea }}</h6>
+                <p>{{ $about->subtitlea }}</p>
+                <small>{{ $about->descriptiona }}</small>
             </div>
 
             <div class="col-lg-4 col-md-6 content-item" data-aos="fade-up" data-aos-delay="100">
                 <img src="{{ asset('image/' . $about->icon_imageb) }}" alt="Advice Icon" class="icon-image" style="width: 5cm; height: 5cm;">
-                <h4>{{ $about->axeb }}</h4>
-                <h5>{{ $about->titleb }}</h5>
-                <h6>{{ $about->subtitleb }}</h6>
-                <p>{{ $about->descriptionb }}</p>
+                <h4><strong>{{ $about->axeb }}</strong></h4>
+                <h6>{{ $about->titleb }}</h6>
+                <p>{{ $about->subtitleb }}</p>
+                <small>{{ $about->descriptionb }}</small>
 
             </div>
 
             <div class="col-lg-4 col-md-6 content-item" data-aos="fade-up" data-aos-delay="200">
                 <img src="{{ asset('image/' . $about->icon_imagec) }}" alt="Education Icon" class="icon-image" style="width: 5cm; height: 5cm;">
-                <h4>{{ $about->axec }}</h4>
-                <h5>{{ $about->titlec }}</h5>
-                <h6>{{ $about->subtitlec }}</h6>
-                <p>{{ $about->descriptionc }}</p>
+                <h4><strong>{{ $about->axec }}</strong></h4>
+                <h6>{{ $about->titlec }}</h6>
+                <p>{{ $about->subtitlec }}</p>
+                <small>{{ $about->descriptionc }}</small>
+            </div>
+
+            <div class="col-lg-4 col-md-6 content-item" data-aos="fade-up" data-aos-delay="200">
+                <img src="{{ asset('image/' . $about->icon_imaged) }}" alt="Education Icon" class="icon-image" style="width: 5cm; height: 5cm;">
+                <h4><strong>{{ $about->axed }}</strong></h4>
+                <h6>{{ $about->titled }}</h6>
+                <p>{{ $about->subtitled }}</p>
+                <small>{{ $about->descriptiond }}</small>
             </div>
         </div>
     </div>

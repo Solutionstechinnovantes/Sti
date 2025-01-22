@@ -30,7 +30,7 @@
                 <div class="info-box">
                     <i class="bx bx-phone-call"></i>
                     <h3>@lang('messages.phone')</h3>
-                    <p>{{ $contact->first()->phone }}</p>
+                    <p>+222 {{ $contact->first()->phone }}</p>
                 </div>
             </div>
         </div>

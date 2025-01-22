@@ -19,9 +19,14 @@
                  We work in the field of developing websites, mobile applications and programs,
                  as we are keen to meet the needs of our customers with the highest quality standards.
                  Our team of creative technicians and engineers is dedicated to its work, and always seeks to create new ideas and add
-                 innovation to every project we work on.',
-
-
+                 innovation to every project we work on.
+                 Our work and goals are based on four axes :',
+                'web developement' => 'Web Development',
+                'mobile application development and design' => 'Mobile Application Development And Design',
+                'consulting and technical support' => 'Consulting and Technical Support',
+                'software solutions for managing institutions' => 'Software Solutions For Managing Institutions',
+                'Those are our amazing team members who work every day to strengthen the foundation of our company.' => 'Those are our amazing team members who work every day to strengthen the foundation of our company.',
+                
 
 
             ];

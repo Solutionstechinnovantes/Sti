@@ -6,7 +6,7 @@
     @include('frontend.about')
     @include('frontend.services')
     @include('frontend.portfolio')
-    @include('frontend.team')
+    @include('frontend.teams')
     @include('frontend.contact')
 
 

@@ -13,9 +13,30 @@ return new class extends Migration
     {
         Schema::create('teams', function (Blueprint $table) {
             $table->id();
-            $table->string('tittle');
-            $table->text('description');
-            $table->string('image');
+            $table->string('tittlea');
+            $table->text('descriptiona');
+            $table->string('imagea');
+            $table->string('fba');
+            $table->string('twa');
+            $table->string('ina');
+            $table->string('linka');
+            $table->string('gita');
+            $table->string('tittleb');
+            $table->text('descriptionb');
+            $table->string('imageb');
+            $table->string('fbb');
+            $table->string('twb');
+            $table->string('inb');
+            $table->string('linkb');
+            $table->string('gitb');
+            $table->string('tittlec');
+            $table->text('descriptionc');
+            $table->string('imagec');
+            $table->string('fbc');
+            $table->string('twc');
+            $table->string('inc');
+            $table->string('linkc');
+            $table->string('gitc');
             $table->timestamps();
         });
     }

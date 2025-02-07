@@ -15,7 +15,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-6 content-item" data-aos="fade-up">
-                <img src="{{ asset('image/' . $about->icon_imagea) }}" alt="Coding Icon" class="icon-image" style="width: 5cm; height: 5cm;">
+                <img src="{{ url( 'image/'. $about->icon_imagea) }}" alt="Coding Icon" class="icon-image" style="width: 5cm; height: 5cm;">
+     
                 <h4><strong>{{ $about->axea }}</strong></h4>
                 <h6>{{ $about->titlea }}</h6>
                 <p>{{ $about->subtitlea }}</p>

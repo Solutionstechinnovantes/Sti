@@ -26,12 +26,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('frontend.index');
-Route::get('/about', [HomeController::class, 'about'])->name('frontend.about');
-Route::get('/sliders', [HomeController::class, 'sliders'])->name('frontend.sliders');
-Route::get('/services', [HomeController::class, 'services'])->name('frontend.services');
-Route::get('/portfolio', [HomeController::class, 'portfolio'])->name('frontend.portfolio');
-Route::get('/teams', [HomeController::class, 'team'])->name('frontend.team');
-Route::get('/contact', [HomeController::class, 'contact'])->name('frontend.contact');
+Route::get('sti/about', [HomeController::class, 'about'])->name('frontend.about');
+Route::get('sti/sliders', [HomeController::class, 'sliders'])->name('frontend.sliders');
+Route::get('sti/services', [HomeController::class, 'services'])->name('frontend.services');
+Route::get('sti/portfolio', [HomeController::class, 'portfolio'])->name('frontend.portfolio');
+Route::get('sti/teams', [HomeController::class, 'team'])->name('frontend.team');
+Route::get('sti/contact', [HomeController::class, 'contact'])->name('frontend.contact');
 Route::get('locale/{lang}',[LocaleController::class, 'setLocale']);
 
 //Auth
@@ -41,7 +41,6 @@ Route::get('/logout', [AuthController::class, 'logout']);
 
 //Dashboard
 Route::prefix('/admin')->middleware('auth')->group(function(){
-
 Route::get('/dashboard', [DashboardController::class, 'index']);
 Route::resource('sliders', SliderController::class);
 Route::resource('services', ServiceController::class);

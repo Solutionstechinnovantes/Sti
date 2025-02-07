@@ -10,7 +10,7 @@
 
             <div class="carousel-inner" role="listbox">
                 @foreach ($sliders as $index => $slider)
-                <div class="carousel-item {{ $index === 0 ? 'active' : '' }}" style="background-image: url('/image/{{ $slider->image }}')">
+                <div class="carousel-item {{ $index === 0 ? 'active' : '' }}" style="background-image: url('image/{{ $slider->image }}')">
                     <div class="carousel-container">
                         <div class="carousel-content container">
                             <h2 class="animated fadeInDown">{{  $slider->tittle  }}</h2>
